@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js" integrity="sha512-rstIgDs0xPgmG6RX1Aba4KV5cWJbAMcvRCVmglpam9SoHZiUCyQVDdH2LPlxoHtrv17XWblE/V/PP+Tr04hbtA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<link rel="stylesheet" href="~/css/absistr.css?4.0.1.8"/>
+<html>
+<head>
+  <title>Title of the document</title>
+</head>
+
+<body>
+    <div id="topside" class="absis-barra-superior" style="width: 100%;color:green;">
+    <div class="container sidebar-max-height" style="width:100%;max-width:100%;margin:0;">
+        <div class="row sidebar-max-height">
+            <div id="this" class="absis-padding-top-075 sidebar-max-height absis-margin-right-05 @(Model.MostrarBoneco ? "": "SemBoneco") @(Model.MostrarAjuda ? "": "SemAjuda")">
+                <div class="row text-end absis-padding-left-12px absis-margin-0" style="background: cyan">              
+                                <img src="apple.svg" alt="Girl in a jacket" width="300" height="150">                        
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+  <div id="divTela" class="mx-auto" style="margin-bottom: 97px;">
+    <div class="col-md-6 mx-auto" style="margin-top: 200px;">
+        <h3 class="mx-auto text-center font-bold">Bem vindo(a) de volta!</h3>
+        <div class="row">
+            <div class="col align-self-center absis-fonte">
+                <form  method="post">
+                    <input type="hidden" asp-for="ModelPagina.LogotipoHTML" value="@modelo.LogotipoHTML"/>
+                    <input type="hidden" asp-for="ModelPagina.DominioID" value="@modelo.DominioID"/>
+                    <input type="hidden" asp-for="ModelPagina.AlturaMonitor" id="alturaMonitor"/>
+                    <input type="hidden" asp-for="ModelPagina.LarguraMonitor" id="larguraMonitor"/>
+                    <input type="hidden" asp-for="ModelPagina.AlturaTela" id="alturaTela"/>
+                    <input type="hidden" asp-for="ModelPagina.LarguraTela" id="larguraTela"/>
+                    <div asp-validation-summary="All" class="text-danger"></div>
+                    <div class="mb-3 col-md-6 mx-auto">
+                        <label asp-for="ModelPagina.Identificacao" class="form-label absis-label absis-required">Usuário</label>
+                        <input asp-for="ModelPagina.Identificacao" placeholder="000.000.000-00" class="form-control absis-input" autocomplete="off" id="txtIdentificacao" required/>
+                    </div>
+                    <div class="col-md-6 mx-auto">
+                        <label asp-for="ModelPagina.Password" class="form-label absis-label absis-required">Senha</label>
+                        <input asp-for="ModelPagina.Password" placeholder="Insira sua senha" class="form-control absis-input" autocomplete="off" id="txtSenha" required/>
+                    </div>
+                    <div class="col-md-6 mx-auto">
+                        <label asp-for="ModelPagina.RememberMe" style="cursor:pointer">
+                            Esqueceu sua senha?
+                        </label>
+                    </div>
+                    <div class="d-grid gap-3 mx-auto">
+                        <button type="submit" class="btn salvarSize mx-auto">Acessar cadastro</button>
+                    </div>
+                    <div class="d-grid gap-3 mx-auto">
+                        <span  class="mx-auto">Não possui um cadastro? <b style="color:cyan">Criar cadastro</b></span>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<footer class="py-5 bg-black" style="background-color: #e0e0e0 !important;">
+        <div class="container">
+            <p class="m-0 text-center text-black small">Copyright &copy; Empresa de Estudos e etc.</p>
+        </div>
+        <!-- /.container -->
+    </footer>
+</body>
+
+</html>
+<style>
+  .absis-central-banco {
+    max-width: 1140px !important;
+}
+.salvarSize{
+        width: 274px !important;
+        height: 38px !important;
+        background-color:cyan;
+        color:white;
+        margin-top:40px;
+        margin-bottom:40px;
+    }
+    #content{
+        margin-right: auto !important;
+        margin-left: auto !important;
+    }
+    .absis-fonte{
+        font-family: Segoe UI;
+        font-size: 20px;
+        font-weight: 400;
+        line-height: 33px;
+        letter-spacing: 0em;
+        text-align: left;
+    }
+</style>
